@@ -94,6 +94,7 @@ function img(src, left1_v, left2_v, top1_v, fixed) {
 }
 
 function btn() {
+    /*
     var form = document.createElement('form')
     form.action = 'https://formspree.io/xlepagvr'
     form.method = 'POST'
@@ -106,6 +107,12 @@ function btn() {
     var submit = document.createElement('input')
     submit.type = 'submit'
     submit.value = 'sign up for the beta!'
+    */
+
+    var form = document.getElementsByTagName('form')[0]
+    var email = form.children[0]
+    var submit = form.children[1]
+
 
     form.style.zIndex = 2
 
@@ -136,9 +143,11 @@ function btn() {
     email.style.left = px(x(w / 4))
     email.style.zIndex = 2;
 
+    /*
     form.appendChild(email)
     form.appendChild(submit)
     document.body.appendChild(form)
+    */
 }
 
 function px(n) {
@@ -184,8 +193,18 @@ var tw = null
 var th = null
 var fac = null
 
+function purge() {
+    var a = document.body.children;
+    for (var i = 0; i < a.length; i++) {
+        if (a[i].tagName != 'FORM') {
+            document.body.removeChild(a[i])
+        }
+    }
+}
+
+
 function start() {
-    document.body.innerHTML = ''
+    //purge()
 
     tw = window.innerWidth
     th = window.innerHeight
