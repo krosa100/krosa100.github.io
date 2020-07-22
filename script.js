@@ -198,13 +198,14 @@ function purge() {
     for (var i = 0; i < a.length; i++) {
         if (a[i].tagName != 'FORM') {
             document.body.removeChild(a[i])
+            i--;
         }
     }
 }
 
 
 function start() {
-    //purge()
+    purge()
 
     tw = window.innerWidth
     th = window.innerHeight
