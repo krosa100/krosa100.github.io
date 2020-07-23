@@ -185,7 +185,7 @@ var big = 50
 var norm = 30
 
 var t1 = "Objective's browser extension lets you choose what you see online."
-var t2 = 'You tell Objective the sort of content you want to see.'
+var t2 = 'You tell Objective what sort of content you want to see.'
 var t3 = 'Objective uses ML to label search results and social media items, then filters and resorts them accordingly.'
 var t4 = 'email us!'
 
@@ -202,7 +202,6 @@ function purge() {
         }
     }
 }
-
 
 function start() {
     purge()
@@ -227,7 +226,7 @@ function start() {
     box(gray1, 0, w, 0, h, false)
     box(gray2, 0, w, h, 1.75 * h, false)
     box(gray3, 0, w, 1.75 * h, 2.5 * h, false)
-    box(darkgray, 0, w, 2.5 * h, 3.5 * h, false)
+    box(darkgray, 0, w, 2.5 * h, 3.0 * h, false)
 
     text(t1, black, big, 1 / 4 * w, 1 / 2 * w, 1 / 3 * h)
     img('p1.svg', 1 / 2 * w, 3 / 4 * w, 1 / 4 * h)
@@ -238,13 +237,16 @@ function start() {
     img('up.svg', 0.3 * w, 0.7 * w, 2.025 * h)
     text(t3, black, norm, 0.25 * w, 0.75 * w, 1.925 * h)
 
-    img('goodbye.svg', 0.40 * w, 0.60 * w, 3.0 * h)
+    var fx = 0.35
+    img('goodbye.svg', 0.40 * w, 0.60 * w, (3.0-fx) * h)
 
     box(gray1, 0, w, 0, 0.067 * h, true)
     box(gray3, 0, w, 0.067 * h, 0.068 * h, true)
+    
     img('logo.svg', 1 / 4 * w, 0.345 * w, 5, true)
-    text('our email is', black, norm, 0.45 * w, 0.75 * w, 3.01 * h)
-    link('getobjective@gmail.com', blue, norm, 0.41 * w, 0.45 * w, 3.04 * h, 'mailto:getobjective@gmail.com?subject=Tell me more!!!')
+    
+    text('our email is', black, norm, 0.45 * w, 0.75 * w, (3.01-fx) * h)
+    link('getobjective@gmail.com', blue, norm, 0.41 * w, 0.45 * w, (3.04-fx) * h, 'mailto:getobjective@gmail.com?subject=Tell me more!!!')
 
     document.body.style.height = '100%'
 
@@ -253,7 +255,5 @@ function start() {
 start()
 
 window.addEventListener('resize', function (event) {
-    console.log('pls stop')
-
     start()
 });
