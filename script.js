@@ -1,4 +1,37 @@
 
+function submit() {
+    var answer1 = document.getElementById('email').value
+    answer = encodeURIComponent(answer1)
+
+    var formId = '1FAIpQLSd5CulxFNK_zJ9p6pkLOoxTdwSTYHlQxaZBgdqLYVOOFDT24w'
+    var queryString = 'formResponse?&entry.20928116=' + answer + '&submit=SUBMIT'
+
+    var url = 'https://docs.google.com/forms/d/e/' + formId + '/' + queryString
+
+    var opts = {
+        method: "POST",
+        mode: "no-cors", // apparently Google will only submit a form if "mode" is "no-cors"
+        redirect: "follow",
+        referrer: "no-referrer"
+    }
+    if (answer1.includes('@')) {
+        submitted = 1
+    } else {
+        submitted = 2
+    }
+    start()
+
+    return fetch(url, opts)
+}
+
+function focused() {
+    submitted = 0
+    start()
+}
+
+
+var submitted = 0
+
 function text(words, color, size_v, left1_v, left2_v, top_v) {
     var left1 = x(left1_v)
     var left2 = x(left2_v)
@@ -109,12 +142,13 @@ function btn() {
     submit.value = 'sign up for the beta!'
     */
 
-    var form = document.getElementsByTagName('form')[0]
-    var email = form.children[0]
-    var submit = form.children[1]
+    //var form = document.getElementsByTagName('form')[0]
+    var email = document.getElementById('email')
+    var submit = document.getElementById('submit')
 
 
-    form.style.zIndex = 2
+    email.style.zIndex = 2
+    submit.style.zIndex = 2
 
     submit.style.backgroundColor = gray4
     submit.style.border = 'none'
@@ -196,7 +230,7 @@ var fac = null
 function purge() {
     var a = document.body.children;
     for (var i = 0; i < a.length; i++) {
-        if (a[i].tagName != 'FORM') {
+        if (a[i].id != 'email' && a[i].id != 'submit') {
             document.body.removeChild(a[i])
             i--;
         }
@@ -230,6 +264,13 @@ function start() {
 
     text(t1, black, big, 1 / 4 * w, 1 / 2 * w, 1 / 3 * h)
     img('p1.svg', 1 / 2 * w, 3 / 4 * w, 1 / 4 * h)
+    if (submitted == 1) {
+        text("you're in!", blue, 20, 1 / 4 * w, 1 / 2 * w, 2 / 3 * h)
+    }
+    if (submitted == 2) {
+        text("is that a valid email?", blue, 20, 1 / 4 * w, 1 / 2 * w, 2 / 3 * h)
+    }
+
 
     img('tablet.svg', 0.25 * w, 0.42 * w, 1.175 * h)
     text(t2, black, norm, 0.45 * w, 0.75 * w, 1.325 * h)
