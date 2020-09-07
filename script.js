@@ -215,8 +215,10 @@ var blue = '#53A8A8'
 var blue2 = '#448989'
 var red = '#B65353'
 var black = 'black'
+var white = 'white'
 var big = 50
 var norm = 30
+var small = 15
 
 var t1 = "Objective's browser extension lets you choose what you see online."
 var t2 = 'You tell Objective what sort of content you want to see.'
@@ -288,6 +290,8 @@ function start() {
     
     text('our email is', black, norm, 0.45 * w, 0.75 * w, (3.01-fx) * h)
     link('getobjective@gmail.com', blue, norm, 0.41 * w, 0.45 * w, (3.04-fx) * h, 'mailto:getobjective@gmail.com?subject=Tell me more!!!')
+    text('Copyright 2020 Objective, Inc. All rights reserved.', gray1, small, 0.41 * w, 0.75 * w, (3.32 - fx) * h)
+
 
     document.body.style.height = '100%'
 
