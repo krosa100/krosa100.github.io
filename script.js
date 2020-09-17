@@ -29,9 +29,7 @@ function focused() {
     start()
 }
 
-
 var submitted = 0
-
 function text(words, color, size_v, left1_v, left2_v, top_v) {
     var left1 = x(left1_v)
     var left2 = x(left2_v)
@@ -150,7 +148,7 @@ function btn() {
     email.style.zIndex = 2
     submit.style.zIndex = 2
 
-    submit.style.backgroundColor = gray4
+    submit.style.backgroundColor = blue
     submit.style.border = 'none'
     submit.style.borderRadius = px(s(25))
     submit.style.width = px(s(300))
@@ -164,8 +162,8 @@ function btn() {
     submit.style.top = px(y(0.61 * h))
     submit.style.left = px(x(w / 4))
     submit.style.zIndex = 2;
-    submit.onmouseover = () => { submit.style.backgroundColor = blue }
-    submit.onmouseout = () => { submit.style.backgroundColor = gray4 }
+    submit.onmouseover = () => { submit.style.backgroundColor = blue2 }
+    submit.onmouseout = () => { submit.style.backgroundColor = blue }
 
     email.style.width = px(s(300))
     email.style.height = px(s(35))
@@ -289,8 +287,8 @@ function start() {
     img('logo.svg', 1 / 4 * w, 0.345 * w, 5, true)
     
     text('our email is', black, norm, 0.45 * w, 0.75 * w, (3.01-fx) * h)
-    link('getobjective@gmail.com', blue, norm, 0.41 * w, 0.45 * w, (3.04-fx) * h, 'mailto:getobjective@gmail.com?subject=Tell me more!!!')
-    text('Copyright 2020 Objective, Inc. All rights reserved.', gray1, small, 0.41 * w, 0.75 * w, (3.32 - fx) * h)
+    link('getobjective@gmail.com', blue, norm, 0.41 * w, 0.45 * w, (3.04-fx) * h, 'mailto:getobjective@gmail.com?subject=Tell me more!')
+    text('Copyright 2020 Objective, Inc. All rights reserved.', '#595959', small, 0.41 * w, 0.75 * w, (3.32 - fx) * h)
 
 
     document.body.style.height = '100%'
